@@ -1,0 +1,46 @@
+{
+  "name": "@billto/node",
+  "version": "1.0.0",
+  "description": "Node.js SDK for the BillTo API, ported from billto-php 1.0.0.",
+  "license": "MIT",
+  "author": "NOZU sp. z o.o.",
+  "type": "commonjs",
+  "main": "./src/index.cjs",
+  "module": "./src/index.mjs",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./src/index.d.mts",
+        "default": "./src/index.mjs"
+      },
+      "require": {
+        "types": "./src/index.d.ts",
+        "default": "./src/index.cjs"
+      }
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "src",
+    "examples",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --test"
+  },
+  "keywords": [
+    "billto",
+    "api",
+    "sdk",
+    "invoices",
+    "ksef"
+  ],
+  "billtoPhpSource": {
+    "repository": "https://github.com/nozugroup/billto-php",
+    "commit": "23454a7834e0b578cd36c1620b943816bafa84ff"
+  }
+}

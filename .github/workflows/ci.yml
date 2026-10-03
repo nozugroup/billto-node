@@ -1,0 +1,22 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+      - run: npm pack --dry-run
+      - name: Install isolated type-checking tools
+        run: npm install --prefix .typecheck --ignore-scripts --no-audit --no-fund typescript@7.0.2 @types/node@22
+      - name: Check ESM and CommonJS declarations
+        run: node .typecheck/node_modules/typescript/bin/tsc --noEmit --strict --module nodenext --target es2022 --types node --typeRoots ./.typecheck/node_modules/@types tests/types.mts tests/types.cts

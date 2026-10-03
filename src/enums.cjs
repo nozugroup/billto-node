@@ -1,0 +1,12 @@
+'use strict';
+const ContractorType = Object.freeze({"Own": "own", "External": "external"});
+const IncomingInvoiceStatus = Object.freeze({"Pending": "pending", "Accepted": "accepted", "Rejected": "rejected"});
+const InvoiceStatus = Object.freeze({"Draft": "draft", "Issued": "issued", "KsefIssuedOffline": "ksef_issued_offline", "KsefIssued": "ksef_issued", "Cancelled": "cancelled"});
+const InvoiceType = Object.freeze({"VAT": "VAT", "KOR": "KOR", "ZAL": "ZAL", "ROZ": "ROZ", "KOR_ZAL": "KOR_ZAL", "KOR_ROZ": "KOR_ROZ", "OSS": "OSS", "KOR_OSS": "KOR_OSS"});
+const OrderStatus = Object.freeze({"Draft": "draft", "Confirmed": "confirmed", "Closed": "closed", "Cancelled": "cancelled"});
+const PaymentMethod = Object.freeze({"Transfer": "transfer", "Cash": "cash", "Card": "card", "Compensation": "compensation", "Other": "other"});
+const Scope = Object.freeze({"InvoicesRead": "invoices:read", "InvoicesWrite": "invoices:write", "OrdersRead": "orders:read", "OrdersWrite": "orders:write", "KsefSend": "ksef:send", "ContractorsRead": "contractors:read", "ContractorsWrite": "contractors:write", "ProductsRead": "products:read", "ProductsWrite": "products:write", "IncomingRead": "incoming:read", "IncomingWrite": "incoming:write", "IncomingVote": "incoming:vote", "WarehouseRead": "warehouse:read", "WarehouseWrite": "warehouse:write"});
+const StockMovementType = Object.freeze({"PZ": "pz", "WZ": "wz", "PW": "pw", "RW": "rw"});
+const TaxType = Object.freeze({"Local": "local", "EU": "eu", "NonEU": "noneu", "None": "none"});
+const VatRate = Object.freeze({"Rate23": "23", "Rate22": "22", "Rate8": "8", "Rate7": "7", "Rate5": "5", "Rate4": "4", "Rate3": "3", "ZeroDomestic": "0 KR", "ZeroWdt": "0 WDT", "ZeroExport": "0 EX", "Exempt": "zw", "ReverseCharge": "oo", "NotSubjectI": "np I", "NotSubjectII": "np II"});
+module.exports = { ContractorType, IncomingInvoiceStatus, InvoiceStatus, InvoiceType, OrderStatus, PaymentMethod, Scope, StockMovementType, TaxType, VatRate };
